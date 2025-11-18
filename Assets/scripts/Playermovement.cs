@@ -63,10 +63,17 @@ public void Move()
 	}
 	animator.SetBool("Move", movimento != Vector3.zero);
 	isGround = Physics.CheckSphere(foot.position, 0.3f, colisionLayer);
-	// Botar parametro isGround
+	animator.SetBool("IsGround" IsGround);
 	}
 	public void Jump()
-	{
+	{	
+		Debug.Log("Chão" + isGround);
+		
+		if(Keyboard.current.spaceKey.wasPressedThisFrame && isGround)
+        {
+            jumpStrength = 5f;
+            animator.SetTrigger("Jump");
+        }
 		if (yForce > -9.81f)
 		{
 			yForce += -9.81f * Time.deltaTime;
