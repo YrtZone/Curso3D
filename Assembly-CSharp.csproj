@@ -49,8 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\scripts\Playermovement.cs" />
+    <Compile Include="Assets\scripts\NPC_AI.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Kevin Iglesias\Characters\Humanoid Giant\Demo Scene\Scripts\HumanoidGiantDemo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Stylized NPC - Peasant Nolant\README.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
