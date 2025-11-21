@@ -48,9 +48,12 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.2.8f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\scripts\GameOverController.cs" />
+    <Compile Include="Assets\scripts\DialogueControl.cs" />
     <Compile Include="Assets\scripts\Playermovement.cs" />
     <Compile Include="Assets\scripts\NPC_AI.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\scripts\HitBoxController.cs" />
     <Compile Include="Assets\Kevin Iglesias\Characters\Humanoid Giant\Demo Scene\Scripts\HumanoidGiantDemo.cs" />
   </ItemGroup>
   <ItemGroup>
