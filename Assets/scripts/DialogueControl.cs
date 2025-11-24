@@ -18,7 +18,10 @@ public class DialogueControl : MonoBehaviour
 
     void Update()
     {
-        
+        if(keyboard.current != null && keyboard.current.tabKey.wasPressedThisFrame)
+        {
+            NextSentence();
+        }
     }
 
     public void Speech(string[] txt, string actorName)
