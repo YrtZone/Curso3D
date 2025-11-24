@@ -8,17 +8,18 @@ public class DialogueControl : MonoBehaviour
     [Header("Components")]
     public GameObject dialogueObj;
     public Text actorNameText;
-    public Text SpeetchText;
+    public Text speetchText;
 
     [Header("Variables")]
-    public float TypingSpeed;
+    public float typingSpeed;
     private string[] sentences;
     private int index;
     private Coroutine typingCoroutine;
 
+
     void Update()
     {
-        if(keyboard.current != null && keyboard.current.tabKey.wasPressedThisFrame)
+        if(Keyboard.current != null && Keyboard.current.tabKey.wasPressedThisFrame)
         {
             NextSentence();
         }
@@ -30,33 +31,35 @@ public class DialogueControl : MonoBehaviour
         {
             StopCoroutine(typingCoroutine);
         }
-        
+
         dialogueObj.SetActive(true);
-        SpeetchText.text = "";
+        speetchText.text = "";
         actorNameText.text = actorName;
         sentences = txt;
         index = 0;
         typingCoroutine = StartCoroutine(TypeSentence());
+
     }
 
     IEnumerator TypeSentence()
     {
-        SpeetchText.text = "";
+        speetchText.text = "";
         foreach(char letter in sentences[index].ToCharArray())
         {
-            SpeetchText.text += letter;
-            yield return new WaitForSeconds(TypingSpeed);
+            speetchText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
         }
         typingCoroutine = null;
     }
+
     public void NextSentence()
     {
-        if(SpeetchText.text == sentences[index])
+        if(speetchText.text == sentences[index])
         {
             if(index < sentences.Length - 1)
             {
                 index++;
-                SpeetchText.text ="";
+                speetchText.text = "";
                 if(typingCoroutine != null)
                 {
                     StopCoroutine(typingCoroutine);
@@ -67,27 +70,26 @@ public class DialogueControl : MonoBehaviour
             {
                 EndDialogue();
             }
-
         }
-
     }
-    
-    public void HidePanel()
-    {
+
+    public void HidePanel() 
+    { 
         if(typingCoroutine != null)
         {
             StopCoroutine(typingCoroutine);
         }
-        SpeetchText.text ="";
-        actorNameText.text ="";
+        speetchText.text = "";
+        actorNameText.text = "";
         index = 0;
         dialogueObj.SetActive(false);
     }
-    
+
     public void EndDialogue()
     {
-
+        speetchText.text = "";
+        index = 0;
+        dialogueObj.SetActive(false);
     }
-
 
 }
