@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Assets\scripts\GameOverController.cs" />
     <Compile Include="Assets\scripts\Dialogue.cs" />
+    <Compile Include="Assets\scripts\MenuManager.cs" />
     <Compile Include="Assets\scripts\DialogueControl.cs" />
     <Compile Include="Assets\scripts\Playermovement.cs" />
     <Compile Include="Assets\scripts\NPC_AI.cs" />
