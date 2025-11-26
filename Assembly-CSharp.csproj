@@ -50,9 +50,11 @@
   <ItemGroup>
     <Compile Include="Assets\scripts\GameOverController.cs" />
     <Compile Include="Assets\scripts\Dialogue.cs" />
+    <Compile Include="Assets\scripts\PlayerManager.cs" />
     <Compile Include="Assets\scripts\MenuManager.cs" />
     <Compile Include="Assets\scripts\DialogueControl.cs" />
     <Compile Include="Assets\scripts\Playermovement.cs" />
+    <Compile Include="Assets\scripts\Teleport.cs" />
     <Compile Include="Assets\scripts\NPC_AI.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\scripts\HitBoxController.cs" />
@@ -1263,12 +1265,12 @@
       <HintPath>Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Editor.Shared">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.Shared.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.2D.Sprite.AIIntegration.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.AIIntegration.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor.Shared">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.Shared.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.InputSystem">
