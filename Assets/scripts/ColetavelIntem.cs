@@ -1,0 +1,34 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class ColetavelItem : MonoBehaviour
+{
+    public static int totalColetaveis = 0;
+    public Text textoColetavel;
+
+    void Start ()
+    {
+
+    }
+
+    void Update ()
+    {
+
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag ("Player"))
+        {
+            totalColetaveis++;
+            AtualizarTexto();
+            Destroy(gameObject);
+        }
+    }
+    private void AtualizarTexto()
+    {
+        if (textoColetavel != null)
+        {
+            textoColetavel.text = totalColetaveis.ToString();
+        }
+    }
+}

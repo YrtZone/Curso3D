@@ -1,9 +1,16 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerManager : MonoBehaviour
 {
     public float vidaJogador = 100f;
+
+    public float vidaMaxima = 100f;
+    public Image  barraVida;
+
     private bool podeSalvar = false;
 
     private Vector3 ultimaPosicaoSalva;
@@ -13,11 +20,15 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         CarregarDadosJogador();
+        AtualizarBarraVida();
     }
 
   
     void Update()
     {
+        AtualizarBarraVida();
+        TakeDamage();
+
         if (podeSalvar && Keyboard.current.bKey.wasPressedThisFrame)
         {
             SalvarDadosJogador();
@@ -74,6 +85,10 @@ public class PlayerManager : MonoBehaviour
         ultimaPosicaoSalva = Vector3.zero;
         ultimaVidaSalva = 0f;
         temDadosSalvos = false;
+
+        vidaJogador = vidaMaxima;
+        AtualizarBarraVida();
+
         Debug.Log("Dados do jogador limpos.");
 
     }
@@ -95,6 +110,26 @@ public class PlayerManager : MonoBehaviour
         else
         {
             Debug.Log("Nenhum dado salvo encontrado.");
+        }
+    }
+    void AtualizarBarraVida()
+    {
+        if (barraVida == null) return;
+
+        float vidaNormalizada = Mathf.Clamp01(vidaJogador / vidaMaxima);
+        barraVida.fillAmount = vidaNormalizada;
+    }
+    public void TakeDamage()
+    {
+        if (Keyboard.current.tKey.wasPressedThisFrame)
+        {
+            vidaJogador -= 10;
+            AtualizarBarraVida();
+
+            if (vidaJogador <= 0)
+            {
+                SceneManager.LoadScene(2);
+            }
         }
     }
 }
